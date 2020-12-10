@@ -1,0 +1,8 @@
+body {
+  font-family: Verdana;  
+}
+
+/* Map */
+#speciesMap {
+  height: calc(100vh - 80px) !important;  
+}
