@@ -7,6 +7,9 @@
 library(leaflet)
 library(shinydashboard)
 library(shinycssloaders)
+library(dplyr)
+library(sf)
+library(leaflet.extras)
 
 ###########
 # LOAD UI #
