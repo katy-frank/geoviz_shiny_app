@@ -25,20 +25,27 @@ fisher_range <- st_transform(fisher_range, 4326)
 
 shinyServer(function(input, output) {
     output$speciesMap <- renderLeaflet({
-        
-        if(input$speciesCombo == "am"){
-            data_source <- marten_range
-            color_id <- 2
-        }
-        if(input$speciesCombo == "fisher"){
-            data_source <- fisher_range
-            color_id <- 4
-        }
-        
         pal <- colorNumeric(palette = "viridis", 0:10)
         
-        leaflet(data_source) %>% setView(lng = -86,	lat = 45, zoom =6) %>% addTiles() %>%
-            addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
-                        fillColor = ~pal(color_id)) 
+        if(input$speciesCombo == "am"){
+            marten_factor <- 0.5
+            fisher_factor <- 0
+        }
+        
+        if(input$speciesCombo == "fisher"){
+            marten_factor <- 0
+            fisher_factor <- 0.5 
+        }
+       
+        if(input$speciesCombo == "all"){
+            marten_factor <- 0.5
+            fisher_factor <- 0.5
+        }
+        
+        leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>% addTiles() %>%
+            addPolygons(data = marten_range, stroke = FALSE, smoothFactor = 0.3, fillOpacity = marten_factor,
+                        fillColor = ~pal(2)) %>% 
+            addPolygons(data = fisher_range, stroke = FALSE, smoothFactor = 0.3, fillOpacity = fisher_factor,
+                        fillColor = ~pal(9)) 
     })
 })

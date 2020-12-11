@@ -10,6 +10,7 @@ library(shinycssloaders)
 library(dplyr)
 library(sf)
 library(leaflet.extras)
+library(ggplot2)
 
 ###########
 # LOAD UI #
@@ -38,7 +39,7 @@ shinyUI(fluidPage(
                         includeMarkdown("www/speciesmap.md"),
                         fluidRow(
                             column(1), # for spacing
-                            column(5, selectInput("speciesCombo","Select a species:", c("American Marten" = "am", "Fisher" = "fisher")))
+                            column(5, selectInput("speciesCombo","Select a species:", c("All" = "all", "American Marten" = "am", "Fisher" = "fisher")))
                         ),
                         fluidRow(
                             column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))
