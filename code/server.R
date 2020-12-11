@@ -37,8 +37,7 @@ shinyServer(function(input, output) {
         
         pal <- colorNumeric(palette = "viridis", 0:10)
         
-        leaflet(data_source) %>% addTiles() %>%
-            addTiles() %>%
+        leaflet(data_source) %>% setView(lng = -86,	lat = 45, zoom =6) %>% addTiles() %>%
             addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
                         fillColor = ~pal(color_id)) 
     })
