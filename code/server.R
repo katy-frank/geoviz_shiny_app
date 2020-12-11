@@ -15,21 +15,31 @@ library(rgdal)
 
 marten_range <- st_read("www/AmericanMarten_Range/mAMMAx_CONUS_Range_2001v1/mAMMAx_CONUS_Range_2001v1.shp")
 marten_range <- st_transform(marten_range, 4326)
+
+fisher_range <- st_read("www/Fisher_Range/mFISHx_CONUS_Range_2001v1/mFISHx_CONUS_Range_2001v1.shp")
+fisher_range <- st_transform(fisher_range, 4326)
+
 ################
 # SERVER LOGIC #
 ################
 
 shinyServer(function(input, output) {
-    # species map
-    output$speciesSelectCombo <- renderUI({
-        selectInput("speciesCombo","Select a species:", c("American Marten" = "am"))
-    })
-    
     output$speciesMap <- renderLeaflet({
-        pal <- colorNumeric(c("red", "green", "blue"), 0:10)
-        leaflet(marten_range) %>% addTiles() %>%
+        
+        if(input$speciesCombo == "am"){
+            data_source <- marten_range
+            color_id <- 2
+        }
+        if(input$speciesCombo == "fisher"){
+            data_source <- fisher_range
+            color_id <- 4
+        }
+        
+        pal <- colorNumeric(palette = "viridis", 0:10)
+        
+        leaflet(data_source) %>% addTiles() %>%
             addTiles() %>%
             addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
-                        fillColor = ~pal(1)) 
+                        fillColor = ~pal(color_id)) 
     })
 })

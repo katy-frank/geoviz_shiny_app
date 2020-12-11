@@ -16,23 +16,10 @@ library(leaflet.extras)
 ###########
 
 shinyUI(fluidPage(
-    
-    # load custom stylesheet
-    includeCSS("www/style.css"),
-    
-    # remove shiny "red" warning messages on GUI - fragment borrowed from: https://github.com/abenedetti/bioNPS/
-    tags$style(type="text/css",
-               ".shiny-output-error { visibility: hidden; }",
-               ".shiny-output-error:before { visibility: hidden; }"
-    ),
-    
     # load page layout
     dashboardPage(
-        
         skin = "blue",
-        
         dashboardHeader(title="Final Project TBD", titleWidth = 300),
-        
         dashboardSidebar(width = 300,
             sidebarMenu(
                 menuItem("Home", tabName = "home", icon = icon("home")),
@@ -50,10 +37,11 @@ shinyUI(fluidPage(
                         # species map section
                         includeMarkdown("www/speciesmap.md"),
                         fluidRow(
-                            column(3, uiOutput("speciesSelectCombo")),
+                            column(1), # for spacing
+                            column(5, selectInput("speciesCombo","Select a species:", c("American Marten" = "am", "Fisher" = "fisher")))
                         ),
                         fluidRow(
-                            column(9,leafletOutput("speciesMap") %>% withSpinner(color = "blue"))
+                            column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))
                         )
                 )
             )
