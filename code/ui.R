@@ -51,7 +51,7 @@ shinyUI(fluidPage(
                                                 "Northern Myotis",
                                                 "Piping Plover",
                                                 "Spotted Turtle"),
-                                              multiple = TRUE,
+                                              multiple = FALSE,
                                               selected="All"
                         ))
                     ),
