@@ -20,11 +20,12 @@ shinyUI(fluidPage(
     # load page layout
     dashboardPage(
         skin = "blue",
-        dashboardHeader(title="Final Project TBD", titleWidth = 300),
+        dashboardHeader(title="Endangered Wildlife of Michigan", titleWidth = 300),
         dashboardSidebar(width = 300,
             sidebarMenu(
                 menuItem("Home", tabName = "home", icon = icon("home")),
-                menuItem("Species Map", tabName = "map", icon = icon("map marked alt"))
+                menuItem("Species Map", tabName = "map", icon = icon("map marked alt")),
+                menuItem("Sources", tabName = "sources", icon = icon("tasks"))
             )
         ),
         
@@ -35,24 +36,30 @@ shinyUI(fluidPage(
                     includeMarkdown("www/home.md")
                 ),
                 tabItem(tabName = "map",
-                        # species map section
-                        includeMarkdown("www/speciesmap.md"),
-                        fluidRow(
-                            column(1), # for spacing
-                            column(5, selectInput("speciesCombo","Select a species:", c("All", 
-                                                                                        "Canada Lynx",
-                                                                                        "Gray Wolf",
-                                                                                        "Indiana Myotis",
-                                                                                        "Kirtland's Warbler",
-                                                                                        "Eastern Massasauga Rattlesnake",
-                                                                                        "Northern Myotis",
-                                                                                        "Piping Plover",
-                                                                                        "Spotted Turtle"
-                            )))
-                        ),
-                        fluidRow(
-                            column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))
-                        )
+                    # species map section
+                    includeMarkdown("www/speciesmap.md"),
+                    fluidRow(
+                        column(1), # for spacing
+                        column(5, selectInput("speciesCombo",
+                                              "Select a species:", 
+                                              c("All", 
+                                                "Canada Lynx",
+                                                "Gray Wolf",
+                                                "Indiana Myotis",
+                                                "Kirtland's Warbler",
+                                                "Eastern Massasauga Rattlesnake",
+                                                "Northern Myotis",
+                                                "Piping Plover",
+                                                "Spotted Turtle"
+                        )))
+                    ),
+                    fluidRow(
+                        column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))
+                    )
+                ),
+                tabItem(tabName = "sources",
+                        #data sources
+                        includeMarkdown("www/sources.md")
                 )
             )
         )

@@ -49,7 +49,7 @@ for (i in 1:length(range_data)) {
 shinyServer(function(input, output) {
     output$speciesMap <- renderLeaflet({
         #init colors
-        pal <- colorNumeric(palette = "viridis", 1:9)
+        pal <- colorNumeric(palette = "magma", 1:9)
 
         # init display
         display <- leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>% addTiles()
@@ -57,9 +57,9 @@ shinyServer(function(input, output) {
         for (i in 1:length(species_metadata[,1])) {
             # set visible if selected
            if (input$speciesCombo == "All"){
-               species_metadata[i,]$opacity <- 0.5
+               species_metadata[i,]$opacity <- 0.3
            } else if(input$speciesCombo == species_metadata[i,]$name) {
-                species_metadata[i,]$opacity <- 0.5
+                species_metadata[i,]$opacity <- 0.6
             }else {
                 species_metadata[i,]$opacity <- 0
             }
