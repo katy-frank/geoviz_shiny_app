@@ -53,26 +53,26 @@ shinyServer(function(input, output) {
 
         # init display
         display <- leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>% addTiles()
-        
-        for (i in 1:length(species_metadata[,1])) {
-            # set visible if selected
-           if (input$speciesCombo == "All"){
-               species_metadata[i,]$opacity <- 0.3
-           } else if(input$speciesCombo == species_metadata[i,]$name) {
-                species_metadata[i,]$opacity <- 0.6
-            }else {
-                species_metadata[i,]$opacity <- 0
+        if (length(input$speciesCombo) != 0){
+            for (i in 1:length(species_metadata[,1])) {
+                # set visible if selected
+               if ("All" %in% input$speciesCombo){
+                   species_metadata[i,]$opacity <- 0.3
+               } else if(species_metadata[i,]$name %in% input$speciesCombo) {
+                    species_metadata[i,]$opacity <- 0.5
+                }else {
+                    species_metadata[i,]$opacity <- 0
+                }
+                
+                # add to the leaflet display
+                uniqid <- species_metadata[i,]$uniqid
+                display <- display %>% addPolygons(data = range_data[[uniqid]], #uniqid must match position in range_data list because of this hack so watch out if you add more species 
+                                                   stroke = FALSE, 
+                                                   smoothFactor = 0.3, 
+                                                   fillOpacity = species_metadata[i,]$opacity,
+                                                   fillColor = ~pal(species_metadata[i,]$uniqid))
             }
-            
-            # add to the leaflet display
-            uniqid <- species_metadata[i,]$uniqid
-            display <- display %>% addPolygons(data = range_data[[uniqid]], #uniqid must match position in range_data list because of this hack so watch out if you add more species 
-                                               stroke = FALSE, 
-                                               smoothFactor = 0.3, 
-                                               fillOpacity = species_metadata[i,]$opacity,
-                                               fillColor = ~pal(species_metadata[i,]$uniqid))
         }
-        
         # return the leaflet display
         display
     })

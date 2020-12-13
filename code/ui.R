@@ -41,7 +41,7 @@ shinyUI(fluidPage(
                     fluidRow(
                         column(1), # for spacing
                         column(5, selectInput("speciesCombo",
-                                              "Select a species:", 
+                                              "Select species to view:", 
                                               c("All", 
                                                 "Canada Lynx",
                                                 "Gray Wolf",
@@ -50,8 +50,10 @@ shinyUI(fluidPage(
                                                 "Eastern Massasauga Rattlesnake",
                                                 "Northern Myotis",
                                                 "Piping Plover",
-                                                "Spotted Turtle"
-                        )))
+                                                "Spotted Turtle"),
+                                              multiple = TRUE,
+                                              selected="All"
+                        ))
                     ),
                     fluidRow(
                         column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))
