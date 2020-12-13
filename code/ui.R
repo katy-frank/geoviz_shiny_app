@@ -39,7 +39,16 @@ shinyUI(fluidPage(
                         includeMarkdown("www/speciesmap.md"),
                         fluidRow(
                             column(1), # for spacing
-                            column(5, selectInput("speciesCombo","Select a species:", c("All" = "all", "American Marten" = "am", "Fisher" = "fisher")))
+                            column(5, selectInput("speciesCombo","Select a species:", c("All", 
+                                                                                        "Canada Lynx",
+                                                                                        "Gray Wolf",
+                                                                                        "Indiana Myotis",
+                                                                                        "Kirtland's Warbler",
+                                                                                        "Eastern Massasauga Rattlesnake",
+                                                                                        "Northern Myotis",
+                                                                                        "Piping Plover",
+                                                                                        "Spotted Turtle"
+                            )))
                         ),
                         fluidRow(
                             column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))

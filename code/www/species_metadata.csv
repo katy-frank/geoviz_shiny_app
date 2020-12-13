@@ -1,0 +1,9 @@
+﻿uniqid,name,scientificname,status,referencename,opacity
+1,Canada Lynx,Lynx canadensis,Threatened,canada_lynx,0.5
+2,Gray Wolf,Canis lupus,Endangered,gray_wolf,0.5
+3,Indiana Myotis,Myotis sodalis,Endangered,indiana_myotis,0.5
+4,Kirtland's Warbler,Dendroica kirtlandii,Endangered,kirtlands_warbler,0.5
+5,Eastern Massasauga Rattlesnake,Sistrurus catenatus,Threatened,massasauga,0.5
+6,Northern Myotis,Myotis septentrionalis,Threatened,northern_myotis,0.5
+7,Piping Plover,Charadrius melodus,Endangered,piping_plover,0.5
+8,Spotted Turtle,Clemmys guttata,Threatened,spotted_turtle,0.5
