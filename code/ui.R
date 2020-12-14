@@ -57,6 +57,9 @@ shinyUI(fluidPage(
                     ),
                     fluidRow(
                         column(12,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue"))
+                    ),
+                    fluidRow(
+                        column(12, uiOutput("speciesImage", width = "100%", height = 500) %>% withSpinner(color = "blue"))
                     )
                 ),
                 tabItem(tabName = "sources",

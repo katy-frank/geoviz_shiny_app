@@ -9,6 +9,7 @@ library(tidyverse)
 library(leaflet.extras)
 library(rvest)
 library(rgdal)
+
 ##################
 # Data Processing #
 ##################
@@ -47,6 +48,28 @@ for (i in 1:length(range_data)) {
 ################
 
 shinyServer(function(input, output) {
+    output$speciesImage <- renderUI({
+        html <- HTML(paste0("<br>")) # if no animal selected don't show any image
+        
+        if (length(input$speciesCombo) != 0){
+            if(!("All" %in% input$speciesCombo)){
+                selected <- species_metadata[which(species_metadata$name %in% input$speciesCombo),]
+             
+                html <- HTML(paste0(
+                    "<br>",
+                    "<a href='",
+                    selected$wikilink,
+                    "' target='_blank'><img style = 'display: block; margin-left: auto; margin-right: auto;' src='",
+                    selected$imagefile,
+                    ".jpg' width = '186'></a>",
+                    "<br>"
+                ))
+            }
+        }
+        
+        html
+    })
+    
     output$speciesMap <- renderLeaflet({
         #init colors
         pal <- colorNumeric(palette = "magma", 1:9)
