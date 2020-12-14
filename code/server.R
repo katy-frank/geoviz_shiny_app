@@ -58,7 +58,6 @@ shinyServer(function(input, output) {
                 selected <- species_metadata[which(species_metadata$name %in% input$speciesCombo),]
              
                 html <- HTML(paste0(
-                    "<br>",
                     "<a href='",
                     selected$wikilink,
                     "' target='_blank'><img style = 'display: block; margin-left: auto; margin-right: auto;' src='",
