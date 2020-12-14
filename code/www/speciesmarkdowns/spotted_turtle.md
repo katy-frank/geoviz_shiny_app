@@ -1,5 +1,5 @@
 <h3>Spotted Turtle</h3>
-<i>Myotis septentrionalis</i>
+<i>Clemmys guttata</i>
 <h4>U.S. Status: <span style="color:orange;">Under Review</span></h4>
 <h4>Michigan Status: <span style="color:orange;">Threatened</span></h4>
 <p>
