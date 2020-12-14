@@ -27,6 +27,8 @@ northern_myotis <- st_read("www/rangedata/northern_myotis/northern_myotis/northe
 piping_plover <- st_read("www/rangedata/piping_plover/piping_plover/piping_plover.shp")
 spotted_turtle <- st_read("www/rangedata/spotted_turtle/spotted_turtle/spotted_turtle.shp")
 
+mi_border <- st_read("www/miborder/clip_mi.shp")
+
 #aggregate them
 range_data <- list(
     "canada_lynx" = canada_lynx, 
@@ -75,14 +77,19 @@ shinyServer(function(input, output) {
         pal <- colorNumeric(palette = "magma", 1:9)
 
         # init display
-        display <- leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>% addTiles()
+        display <- leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>%
+            addTiles() %>% 
+            addPolygons(data = mi_border, 
+                        color = "#FF0000", weight = 1,opacity=1,
+                        fillOpacity = 0)
+        
         if (length(input$speciesCombo) != 0){
             for (i in 1:length(species_metadata[,1])) {
                 # set visible if selected
                if ("All" %in% input$speciesCombo){
                    species_metadata[i,]$opacity <- 0.3
                } else if(species_metadata[i,]$name %in% input$speciesCombo) {
-                    species_metadata[i,]$opacity <- 0.5
+                    species_metadata[i,]$opacity <- 0.6
                 }else {
                     species_metadata[i,]$opacity <- 0
                 }
