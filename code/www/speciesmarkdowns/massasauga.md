@@ -1,0 +1,6 @@
+<h3>Eastern Massauga Rattlesnake</h3>
+<h4>U.S. Status: <span style="color:orange;">Threatened</span></h4>
+<h4>Michigan Status: <span style="color:red;">Endangered</span></h4>
+<p>
+A medium-sized cat that prefers dense, mature boreal or conifer forest. Threatened primarily by humans (poaching, trapping, etc) and mismanagement of mature coniferous forests. <a href="https://mnfi.anr.msu.edu/species/description/11476/Lynx-canadensis">Learn more about the Canada Lynx here.</a>
+</p>

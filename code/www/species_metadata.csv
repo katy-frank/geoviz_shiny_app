@@ -1,9 +1,9 @@
-﻿uniqid,name,scientificname,status,referencename,opacity,wikilink,imagefile
-1,Canada Lynx,Lynx canadensis,Threatened,canada_lynx,0.5,https://en.wikipedia.org/wiki/Canada_lynx,canada_lynx_img
-2,Gray Wolf,Canis lupus,Endangered,gray_wolf,0.5,https://en.wikipedia.org/wiki/Wolf,gray_wolf_img
-3,Indiana Myotis,Myotis sodalis,Endangered,indiana_myotis,0.5,https://en.wikipedia.org/wiki/Indiana_bat,indiana_myotis_img
-4,Kirtland's Warbler,Dendroica kirtlandii,Endangered,kirtlands_warbler,0.5,https://en.wikipedia.org/wiki/Kirtland's_warbler,kirtlands_warbler_img
-5,Eastern Massasauga Rattlesnake,Sistrurus catenatus,Threatened,massasauga,0.5,https://en.wikipedia.org/wiki/Massasauga,massasauga_img
-6,Northern Myotis,Myotis septentrionalis,Threatened,northern_myotis,0.5,https://en.wikipedia.org/wiki/Myotis_septentrionalis,northern_myotis_img
-7,Piping Plover,Charadrius melodus,Endangered,piping_plover,0.5,https://en.wikipedia.org/wiki/Piping_plover,piping_plover_img
-8,Spotted Turtle,Clemmys guttata,Threatened,spotted_turtle,0.5,https://en.wikipedia.org/wiki/Spotted_turtle,spotted_turtle_img
+﻿uniqid,name,scientificname,status,referencename,opacity,wikilink,imagefile,markdown
+1,Canada Lynx,Lynx canadensis,Threatened,canada_lynx,0.5,https://en.wikipedia.org/wiki/Canada_lynx,canada_lynx_img,canada_lynx.md
+2,Gray Wolf,Canis lupus,Endangered,gray_wolf,0.5,https://en.wikipedia.org/wiki/Wolf,gray_wolf_img,gray_wolf.md
+3,Indiana Myotis,Myotis sodalis,Endangered,indiana_myotis,0.5,https://en.wikipedia.org/wiki/Indiana_bat,indiana_myotis_img,indiana_myotis.md
+4,Kirtland's Warbler,Dendroica kirtlandii,Endangered,kirtlands_warbler,0.5,https://en.wikipedia.org/wiki/Kirtland's_warbler,kirtlands_warbler_img,kirtlands_warbler.md
+5,Eastern Massasauga Rattlesnake,Sistrurus catenatus,Threatened,massasauga,0.5,https://en.wikipedia.org/wiki/Massasauga,massasauga_img,massasauga.md
+6,Northern Myotis,Myotis septentrionalis,Threatened,northern_myotis,0.5,https://en.wikipedia.org/wiki/Myotis_septentrionalis,northern_myotis_img,northern_myotis.md
+7,Piping Plover,Charadrius melodus,Endangered,piping_plover,0.5,https://en.wikipedia.org/wiki/Piping_plover,piping_plover_img,piping_plover.md
+8,Spotted Turtle,Clemmys guttata,Threatened,spotted_turtle,0.5,https://en.wikipedia.org/wiki/Spotted_turtle,spotted_turtle_img,spotted_turtle.md

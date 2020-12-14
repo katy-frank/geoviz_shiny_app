@@ -64,12 +64,21 @@ shinyServer(function(input, output) {
                     "' target='_blank'><img style = 'display: block; margin-left: auto; margin-right: auto;' src='",
                     selected$imagefile,
                     ".jpg' width = '186'></a>",
-                    "<br>"
-                ))
+                    "<br>",
+                    includeMarkdown(paste0("www/speciesmarkdowns/",selected$markdown))
+                ))  
             }
         }
-        
         html
+    })
+    
+    output$speciesMarkdown <- renderUI({
+        if (length(input$speciesCombo) != 0){
+            if(!("All" %in% input$speciesCombo)){
+                selected <- species_metadata[which(species_metadata$name %in% input$speciesCombo),]
+                includeMarkdown(paste0("www/speciesmarkdowns/",selected$markdown))
+            }
+        }
     })
     
     output$speciesMap <- renderLeaflet({
