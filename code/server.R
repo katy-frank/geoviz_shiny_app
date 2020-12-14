@@ -75,7 +75,7 @@ shinyServer(function(input, output) {
     output$speciesMap <- renderLeaflet({
         #init colors
         pal <- colorNumeric(palette = "magma", 1:9)
-
+        
         # init display
         display <- leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>%
             addTiles() %>% 
@@ -104,6 +104,10 @@ shinyServer(function(input, output) {
             }
         }
         # return the leaflet display
+        display <- display %>% addLegend(colors = c(pal(1), pal(2), pal(3), pal(4), pal(5), pal(6), pal(7), pal(8)),
+                                         values = c(1:8),
+                                         labels = species_metadata$name,
+                                         position = "bottomleft")
         display
     })
 })
