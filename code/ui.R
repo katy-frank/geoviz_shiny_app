@@ -55,6 +55,12 @@ shinyUI(fluidPage(
                                               selected="All"
                         ))
                     ),
+                    includeMarkdown("www/landuse.md"),
+                    fluidRow(
+                        column(1,
+                               radioButtons("radio", "",
+                                            choices = list("None" = 1, "Developed" = 2,
+                                                           "Agriculture" = 3),selected = 1))),
                     fluidRow(
                         column(8,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue")),
                         column(4, uiOutput("speciesImage", width = "100%", height = 500) %>% withSpinner(color = "blue"))

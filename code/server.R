@@ -27,6 +27,15 @@ northern_myotis <- st_read("www/rangedata/northern_myotis/northern_myotis/northe
 piping_plover <- st_read("www/rangedata/piping_plover/piping_plover/piping_plover.shp")
 spotted_turtle <- st_read("www/rangedata/spotted_turtle/spotted_turtle/spotted_turtle.shp")
 
+# read in land use data
+#land <- raster("www/landusedata/gaplf2011lc_v30_mi.tif")
+
+
+#urbanland <- land %in% 580:584
+#agland <- land %in% 555:557
+
+
+
 mi_border <- st_read("www/miborder/clip_mi.shp")
 
 #aggregate them
