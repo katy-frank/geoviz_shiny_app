@@ -45,6 +45,14 @@ for (i in 1:length(range_data)) {
     range_data[[i]] <- st_transform(range_data[[i]], 4326)
 }
 
+# read in land use data
+land <- raster("www/landusedata/gaplf2011lc_v30_mi.tif")
+
+
+urbanland <- land %in% 580:584
+agland <- land %in% 555:557
+
+
 ################
 # SERVER LOGIC #
 ################
