@@ -40,8 +40,6 @@ urbanland_agg<- aggregate(urbanland, fact=15)
 agland_agg<- aggregate(agland, fact=15)
 disturbedland_agg<- aggregate(disturbed, fact=15)
 
-
-
 mi_border <- st_read("www/miborder/clip_mi.shp")
 
 #aggregate them
@@ -59,13 +57,6 @@ range_data <- list(
 for (i in 1:length(range_data)) {
     range_data[[i]] <- st_transform(range_data[[i]], 4326)
 }
-
-# read in land use data
-land <- raster("www/landusedata/gaplf2011lc_v30_mi.tif")
-
-
-urbanland <- land %in% 580:584
-agland <- land %in% 555:557
 
 
 ################
@@ -134,6 +125,20 @@ shinyServer(function(input, output) {
                                                    fillColor = ~pal(species_metadata[i,]$uniqid))
             }
         }
+        
+        # add in the land use rasters if selected
+        if (length(input$checkGroup) != 0){
+            if (1 %in% input$checkGroup) {
+                display <- display %>% addRasterImage(agland_agg, colors = c("transparent", "goldenrod"),opacity = 1)
+            }
+            if (2 %in% input$checkGroup){
+                display <- display %>% addRasterImage(urbanland_agg, colors = c("transparent", "gray48"),opacity = 1)
+            }
+            if (3 %in% input$checkGroup){
+                display <- display %>% addRasterImage(disturbedland_agg, colors = c("transparent", "brown"),opacity = 1) 
+            }
+        }
+        
         # return the leaflet display
         display <- display %>% addLegend(colors = c(pal(1), pal(2), pal(3), pal(4), pal(5), pal(6), pal(7), pal(8)),
                                          values = c(1:8),
