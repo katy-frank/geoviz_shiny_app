@@ -9,6 +9,8 @@ library(tidyverse)
 library(leaflet.extras)
 library(rvest)
 library(rgdal)
+library(raster)
+library(leaflet)
 
 ##################
 # Data Processing #
