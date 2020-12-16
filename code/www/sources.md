@@ -25,6 +25,14 @@ App made using [shiny](https://shiny.rstudio.com/).
 </p>
 
 <p>
+  <h3>USGS Land Cover Raster Data</h3>
+  <ul>
+  <li>Homer, C.G., Dewitz, J.A., Yang, L., Jin, S., Danielson, P., Xian, G., Coulston, J., Herold, N.D., Wickham, J.D., and Megown, K.,
+2015, Completion of the 2011 National Land Cover Database for the conterminous United States-Representing a decade of
+land cover change information. Photogrammetric Engineering and Remote Sensing, v. 81, no. 5, p. 345-354.</li>
+</ul>
+</p>
+<p>
 <h3>Michigan Boundary File Selected from:</h3>
 <ul>
 <li>United States Census Bureau TIGER/Line Shapefiles, 2019, State Boundaries. <a <li>href="https://www2-census-gov.proxy.lib.umich.edu/geo/tiger/TIGER2019/STATE/">https://www2-census-gov.proxy.lib.umich.edu/geo/tiger/TIGER2019/STATE/</a></li>
