@@ -1,0 +1,12 @@
+name: code
+title: code
+username:
+account: kaitlynfrank
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3404508
+bundleId: 3992827
+url: https://kaitlynfrank.shinyapps.io/code/
+when: 1608051173.07744
+asMultiple: FALSE
+asStatic: FALSE
