@@ -94,7 +94,7 @@ shinyServer(function(input, output) {
         pal <- colorNumeric(palette = "magma", 1:9)
         
         # init display
-        display <- leaflet() %>% setView(lng = -86,	lat = 45, zoom = 5) %>%
+        display <- leaflet() %>% setView(lng = -86,	lat = 43, zoom = 5) %>%
             addTiles() %>% 
             addPolygons(data = mi_border, 
                         color = "#FF0000", weight = 1,opacity=1,
@@ -124,21 +124,26 @@ shinyServer(function(input, output) {
         # add in the land use rasters if selected
         if (length(input$checkGroup) != 0){
             if (1 %in% input$checkGroup) {
-                display <- display %>% addRasterImage(agriculture, colors = c("transparent", "goldenrod"),opacity = 1,project=FALSE)
+                display <- display %>% addRasterImage(agriculture, colors = c("transparent", "#FABC08"),opacity = 1,project=FALSE)
             }
             if (2 %in% input$checkGroup){
-                display <- display %>% addRasterImage(developed, colors = c("transparent", "gray48"),opacity = 1,project=FALSE)
+                display <- display %>% addRasterImage(developed, colors = c("transparent", "#838181"),opacity = 1,project=FALSE)
             }
             if (3 %in% input$checkGroup){
-                display <- display %>% addRasterImage(disturbed, colors = c("transparent", "brown"),opacity = 1, project=FALSE) 
+                display <- display %>% addRasterImage(disturbed, colors = c("transparent", "#FF0000"),opacity = 1, project=FALSE) 
             }
         }
         
         # return the leaflet display
         display <- display %>% addLegend(colors = c(pal(1), pal(2), pal(3), pal(4), pal(5), pal(6), pal(7), pal(8)),
-                                         values = c(1:8),
                                          labels = species_metadata$name,
-                                         position = "bottomleft")
+                                         position = "bottomleft",
+                                         title="Species Range")
+        
+        display <- display %>% addLegend(colors = c("#FABC08","#838181","#FF0000"),
+                      labels = c("Agriculture", "Developed", "Disturbed"),
+                      position = "bottomright",
+                      title = "Land Use Category")
         display
     })
 })
