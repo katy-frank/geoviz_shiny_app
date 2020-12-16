@@ -30,8 +30,10 @@ spotted_turtle <- st_read("www/rangedata/spotted_turtle/spotted_turtle/spotted_t
 # read in land use data
 developed <- raster("www/developed.tif")
 developed <- projectRasterForLeaflet(developed, method = "ngb")
+
 agriculture <- raster("www/agriculture.tif")
 agriculture <- projectRasterForLeaflet(agriculture, method = "ngb")
+
 disturbed <- raster("www/disturbed.tif")
 disturbed <- projectRasterForLeaflet(disturbed, method = "ngb")
 
