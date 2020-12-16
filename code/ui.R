@@ -52,19 +52,13 @@ shinyUI(fluidPage(
                                                 "Piping Plover",
                                                 "Spotted Turtle"),
                                               multiple = FALSE,
-                                              selected="All"
-                        ))
+                                              selected="All")),
+                            column(6,checkboxGroupInput("checkGroup", "Select a land use type to display:", inline = TRUE,
+                                                            choices = c("Agriculture" = 1,
+                                                                        "Developed" = 2,
+                                                                        "Disturbed" = 3),
+                                                            selected = 0)),
                     ),
-                    includeMarkdown("www/landuse.md"),
-                    fluidRow( column(1),
-                        # for spacing
-                        column(3,
-                               checkboxGroupInput("checkGroup", inline = TRUE,
-                                                  h3(""), 
-                                                  choices = list("Agriculture" = 1, 
-                                                                 "Developed" = 2,
-                                                                 "Disturbed" = 3),
-                                                  selected = 0))),
                     fluidRow(
                         column(8,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue")),
                         column(4, uiOutput("speciesImage", width = "100%", height = 500) %>% withSpinner(color = "blue"))

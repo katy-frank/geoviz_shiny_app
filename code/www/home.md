@@ -1,7 +1,11 @@
-## Welcome !
+## Welcome!
+<br>
+Final project for EAS 501.19: Geovisualization of the Environment and Society (Advanced).
+<br>
+<b>By Kaitlyn Frank and Ethan Hiltner</b>
 <br><br>
-Learn about land use and endangered wildlife in Michigan.
-
+Learn about endangered wildlife and land use in Michigan.
+<br>
 Using the left navigation panel you can find a map which visualizes this data.
 <br><br>
 <img style = 'display: block; margin-left: auto; margin-right: auto;' src='greatlakes.jpg' width = '500'>
