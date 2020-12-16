@@ -29,10 +29,11 @@ spotted_turtle <- st_read("www/rangedata/spotted_turtle/spotted_turtle/spotted_t
 
 # read in land use data
 developed <- raster("www/developed.tif")
+developed <- projectRasterForLeaflet(developed, method = "ngb")
 agriculture <- raster("www/agriculture.tif")
+agriculture <- projectRasterForLeaflet(agriculture, method = "ngb")
 disturbed <- raster("www/disturbed.tif")
-
-
+disturbed <- projectRasterForLeaflet(disturbed, method = "ngb")
 
 mi_border <- st_read("www/miborder/clip_mi.shp")
 
@@ -123,13 +124,13 @@ shinyServer(function(input, output) {
         # add in the land use rasters if selected
         if (length(input$checkGroup) != 0){
             if (1 %in% input$checkGroup) {
-                display <- display %>% addRasterImage(agland_agg, colors = c("transparent", "goldenrod"),opacity = 1)
+                display <- display %>% addRasterImage(agriculture, colors = c("transparent", "goldenrod"),opacity = 1,project=FALSE)
             }
             if (2 %in% input$checkGroup){
-                display <- display %>% addRasterImage(urbanland_agg, colors = c("transparent", "gray48"),opacity = 1)
+                display <- display %>% addRasterImage(developed, colors = c("transparent", "gray48"),opacity = 1,project=FALSE)
             }
             if (3 %in% input$checkGroup){
-                display <- display %>% addRasterImage(disturbedland_agg, colors = c("transparent", "brown"),opacity = 1) 
+                display <- display %>% addRasterImage(disturbed, colors = c("transparent", "brown"),opacity = 1, project=FALSE) 
             }
         }
         
