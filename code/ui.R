@@ -56,11 +56,15 @@ shinyUI(fluidPage(
                         ))
                     ),
                     includeMarkdown("www/landuse.md"),
-                    fluidRow(
-                        column(1,
-                               radioButtons("radio", "",
-                                            choices = list("None" = 1, "Developed" = 2,
-                                                           "Agriculture" = 3),selected = 1))),
+                    fluidRow( column(1),
+                        # for spacing
+                        column(3,
+                               checkboxGroupInput("checkGroup", inline = TRUE,
+                                                  h3(""), 
+                                                  choices = list("Agriculture" = 1, 
+                                                                 "Developed" = 2,
+                                                                 "Disturbed" = 3),
+                                                  selected = 0))),
                     fluidRow(
                         column(8,leafletOutput("speciesMap", width = "100%", height = 500) %>% withSpinner(color = "blue")),
                         column(4, uiOutput("speciesImage", width = "100%", height = 500) %>% withSpinner(color = "blue"))
