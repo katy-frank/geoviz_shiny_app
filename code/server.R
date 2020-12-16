@@ -28,17 +28,11 @@ piping_plover <- st_read("www/rangedata/piping_plover/piping_plover/piping_plove
 spotted_turtle <- st_read("www/rangedata/spotted_turtle/spotted_turtle/spotted_turtle.shp")
 
 # read in land use data
-land <- raster("www/landusedata/gaplf2011lc_v30_mi.tif")
+developed <- raster("www/developed.tif")
+agriculture <- raster("www/agriculture.tif")
+disturbed <- raster("www/disturbed.tif")
 
-#selecting for each land use type
-urbanland <- land %in% 580:584
-agland <- land %in% 555:557
-disturbed <-land %in% 558:576
 
-#aggregating land use data to reduce raster file size
-urbanland_agg<- aggregate(urbanland, fact=15)
-agland_agg<- aggregate(agland, fact=15)
-disturbedland_agg<- aggregate(disturbed, fact=15)
 
 mi_border <- st_read("www/miborder/clip_mi.shp")
 
