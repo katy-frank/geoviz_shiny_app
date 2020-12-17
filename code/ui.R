@@ -64,9 +64,6 @@ shinyUI(fluidPage(
                         column(4, uiOutput("speciesImage", width = "100%", height = 500) %>% withSpinner(color = "blue"))
                     ),
                     includeMarkdown("www/landuseinfo.md")
-                    
-                    
-                    
                     ),
                 tabItem(tabName = "sources",
                         #data sources
