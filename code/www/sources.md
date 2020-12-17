@@ -33,6 +33,19 @@ land cover change information. Photogrammetric Engineering and Remote Sensing, v
 </ul>
 </p>
 <p>
+  <h3>Information and photos for Land Use </h3>
+  <ul>
+  <li>https://kansaslivingmagazine.com/articles/2016/04/01/agriculture-and-wildlife-how-do-they-co-exist</li>
+<li>https://www.thebalancesmb.com/finding-logging-and-timber-companies-2218112</li>
+<li>https://detroit.curbed.com/2020/3/20/21188357/detroit-development-hudsons-tower-coronavirus-construction</li>
+<li>https://medium.com/@mikethomsan/technology-trends-in-the-field-of-agriculture-197d81aaa2a8</li>
+<li>https://www.nationalgeographic.com/news/2016/04/160418-animals-urban-cities-wildlife-science-coyotes/</li>
+<li>http://www.bbc.com/earth/story/20150731-how-a-city-can-save-wildlife</li>
+<li>https://www.fs.usda.gov/rmrs/science-spotlights/how-removal-invasive-trees-affects-nesting-birds-riparian-areas</li>
+<li>https://www.researchgate.net/publication/267774927_Influences_of_Timber_Harvesting_and_Trapping_on_Habitat_Selection_and_Demographic_Characteristics_of_Marten</li>
+</ul>
+</p>
+<p>
 <h3>Michigan Boundary File Selected from:</h3>
 <ul>
 <li>United States Census Bureau TIGER/Line Shapefiles, 2019, State Boundaries. <a <li>href="https://www2-census-gov.proxy.lib.umich.edu/geo/tiger/TIGER2019/STATE/">https://www2-census-gov.proxy.lib.umich.edu/geo/tiger/TIGER2019/STATE/</a></li>
